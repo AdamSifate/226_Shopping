@@ -1,6 +1,8 @@
-﻿namespace Shopping
+﻿using System.Net.Http.Headers;
+
+namespace Shopping
 {
-    public class Cart
+    public class Cart : ICollectionOfArticles
     {
         #region private attributes
         private List<Article> _articles = new List<Article>();
@@ -9,19 +11,20 @@
         #region public methods
         public void Add(List<Article> articles)
         {
-            throw new NotImplementedException();
+            _articles.AddRange(articles);
         }
 
-        public void Remove(List<Article>? articles = null)
+        public List<Article> Remove(Boolean clearCart = false)
         {
-            throw new NotImplementedException();
+            _articles.Clear();
+            return _articles;
         }
 
         public List<Article> Articles
         {
             get
             {
-                throw new NotImplementedException();
+                return _articles;
             }
         }
         #endregion public methods
