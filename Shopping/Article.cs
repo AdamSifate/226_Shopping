@@ -15,6 +15,7 @@
         {
             get
             {
+                //asd
                 return _price;
             }
         }
